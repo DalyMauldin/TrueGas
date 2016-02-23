@@ -1,5 +1,5 @@
 package com.xenonide.truegas;
 
-public class Milesperdollar {
+public class Truempd {
 
 }

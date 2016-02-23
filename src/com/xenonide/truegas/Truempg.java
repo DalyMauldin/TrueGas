@@ -1,5 +1,5 @@
 package com.xenonide.truegas;
 
-public class Milespergallon {
+public class Truempg {
 
 }
