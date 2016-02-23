@@ -1,14 +1,16 @@
 package com.xenonide.truegas;
 
-public class Car {
+public class Car extends Truecalculations {
 	//Car Attributes
 	private String make;
 	private String model;
 	private int year;
 	private double makempg;
+	private double makempd;
 	private double truempg;
 	private double truempd;
 	private int mileage;
+	private double tanksize;
 	//End Car Attributes
 	
 	//Final Values
@@ -46,12 +48,23 @@ public class Car {
 	public void setMakempg(double x){
 		if (x > 0){
 			makempg = x;
-		} else if (x <= 0){
+		}else if (x <= 0){
 			makempg = 1;
 		}
 	}
 	public double getMakempg(){
 		return makempg;
+	}
+	//Maker MPD
+	public void setMakempd(double ppg){
+		if (ppg > 0){
+			makempd = makermpd(ppg, makempg);
+		}else if (ppg < 0){
+			makempd = 1;
+		}
+	}
+	public double getMakempd(){
+		return makempd;
 	}
 	//True MPG
 	public void setTruempg(double x){
@@ -71,12 +84,19 @@ public class Car {
 	public void setMileage(int x){
 		if (x > 0 && x < MAX_MILEAGE){
 			mileage = x;
-		} else if (x <= 0){
+		}else if (x <= 0){
 			mileage = MAX_MILEAGE;
 		}
 	}
 	public int getMileage(){
 		return mileage;
+	}
+	//Tank Size
+	public void setTanksize(double x){
+		tanksize = x;
+	}
+	public double getTanksize(){
+		return tanksize;
 	}
 	//End Attribute Sets and Gets
 	
@@ -92,14 +112,16 @@ public class Car {
 		setMake(makex);
 		setModel(modelx);
 		setYear(yearx);
-		setMakempg(makempgx);
 		setMileage(mileagex);
+		setMakempg(makempgx);
+		//setTruempg(truempg(mileage, NEWMILEAGE, GALLONSBOUGHT));
+		//setTruempd(truempd());
 	}
 	//End Constructors
 	
 	//toString Method
 	public String toString(){
-		return "Year= " + year + ", Make= " + make + ", Model= " + model + ", Mileage= " + mileage + ", MakerMPG= " + makempg + ", TrueMPD= " + truempd + ", TrueMPG= " + truempg;
+		return "Year= " + year + ", Make= " + make + ", Model= " + model + ", Mileage= " + mileage + " miles, MakeMPD= " + makempd + " mpd, MakerMPG= " + makempg + " mpg, TrueMPD= " + truempd + " mpd, TrueMPG= " + truempg + " mpg";
 	}
 	//End toString Method
 }
