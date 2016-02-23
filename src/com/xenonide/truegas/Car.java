@@ -69,7 +69,7 @@ public class Car {
 		year = MAX_YEAR;
 		makempg = 1;
 	}
-	//Car with ALL Attributes
+	//Constructor with ALL Attributes
 	public Car(String makex, String modelx, int yearx, double makempgx){
 		make = makex;
 		model = modelx;
