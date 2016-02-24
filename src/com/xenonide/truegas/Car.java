@@ -67,15 +67,23 @@ public class Car extends Truecalculations {
 		return makempd;
 	}
 	//True MPG
-	public void setTruempg(double x){
-		truempg = x;
+	public void setTruempg(int newmiles, double gallonsbought){
+		if (newmiles > mileage && gallonsbought <= tanksize){
+			truempg = truempg(mileage, newmiles, gallonsbought);
+		}else if (newmiles < mileage || gallonsbought > tanksize){
+			truempg = 1;
+		}
 	}
 	public double getTruempg(){
 		return truempg;
 	}
 	//True MPD
-	public void setTruempd(double x){
-		truempd = x;
+	public void setTruempd(double ppg){
+		if (ppg > 0){
+			truempd = truempd(ppg, truempg);
+		}else if (ppg < 0) {
+			truempd = 1;
+		}
 	}
 	public double getTruempd(){
 		return truempd;
@@ -93,7 +101,11 @@ public class Car extends Truecalculations {
 	}
 	//Tank Size
 	public void setTanksize(double x){
-		tanksize = x;
+		if (x > 0){
+			tanksize = x;
+		} else if (x < 0){
+			tanksize = 1;
+		}
 	}
 	public double getTanksize(){
 		return tanksize;
@@ -108,14 +120,16 @@ public class Car extends Truecalculations {
 		mileage = MAX_MILEAGE;
 	}
 	//Constructor with ALL Attributes
-	public Car(String makex, String modelx, int yearx, double makempgx, int mileagex){
+	public Car(String makex, String modelx, int yearx, double makempgx, int mileagex, double ppgx, int newmilesx, double gallonsboughtx, double tanksizex){
 		setMake(makex);
 		setModel(modelx);
 		setYear(yearx);
 		setMileage(mileagex);
+		setTanksize(tanksizex);
 		setMakempg(makempgx);
-		//setTruempg(truempg(mileage, NEWMILEAGE, GALLONSBOUGHT));
-		//setTruempd(truempd());
+		setMakempd(ppgx);
+		setTruempg(newmilesx, gallonsboughtx);
+		setTruempd(ppgx);
 	}
 	//End Constructors
 	
