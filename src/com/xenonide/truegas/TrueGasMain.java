@@ -14,8 +14,6 @@ public class TrueGasMain {
 		
 		Car brokencar = new Car("not a", "real car", 1930, -2, 0, 1.45, -12, 19.9, 18);
 		System.out.println(brokencar);
-		
-		
-		//I am testing zee software
+
 	}
 }
